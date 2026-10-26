@@ -1,33 +1,12 @@
 # DeliveryExpress
 
-APS de Teste de Software — UNIFAMETRO.
+APS de Teste de Software (UNIFAMETRO): cinco funções de um sistema de delivery cobertas pelos 20 casos de teste do [enunciado](https://profjonhsousa.vercel.app/2026-2/unifametro-ts/aulaAPS/pratica/index.html).
 
-João Tiago Mesquita Palhas · Matrícula 1-2023228650
-
-Implementação de autenticação, força de senha, bloqueio de login, frete e cupons, com os 20 casos de teste do [enunciado](https://profjonhsousa.vercel.app/2026-2/unifametro-ts/aulaAPS/pratica/index.html).
-
-## Executar
-
-Requer Node.js e npm.
+João Tiago Mesquita Palhas (1-2023228650)
 
 ```sh
 npm ci
-npm test
-npm run test:coverage
+npx jest --coverage
 ```
 
-## Resultado
-
-20 testes passando. Cobertura de 100% em linhas, instruções, funções e ramificações.
-
-![Saída de npx jest --coverage](evidencias/print-cobertura.png)
-
-[Saída do Jest](resultado-testes.txt) · [Relatório da execução](evidencias/resultado.html)
-
-O comando de cobertura gera o relatório detalhado em `coverage/lcov-report/index.html`.
-
-## Entrega
-
-Trabalho individual. A aceitação desse formato depende do professor, pois o enunciado exige três integrantes e revisão cruzada.
-
-Pendentes: convite ao professor (`jonh.sousa@professor.unifametro.edu.br`) e envio do link.
+![Cobertura](evidencias/print-cobertura.png)
