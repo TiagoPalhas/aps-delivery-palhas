@@ -30,4 +30,4 @@ O comando de cobertura gera o relatório detalhado em `coverage/lcov-report/inde
 
 Trabalho individual. A aceitação desse formato depende do professor, pois o enunciado exige três integrantes e revisão cruzada.
 
-Pendentes: publicação no GitHub, convite ao professor (`jonh.sousa@professor.unifametro.edu.br`) e envio do link.
+Pendentes: convite ao professor (`jonh.sousa@professor.unifametro.edu.br`) e envio do link.
