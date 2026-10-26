@@ -9,9 +9,19 @@
   },
   "jest": {
     "testEnvironment": "node",
-    "collectCoverageFrom": ["delivery.js"],
+    "collectCoverageFrom": [
+      "delivery.js"
+    ],
     "coverageThreshold": {
-      "global": { "branches": 100, "functions": 100, "lines": 100, "statements": 100 }
+      "global": {
+        "branches": 100,
+        "functions": 100,
+        "lines": 100,
+        "statements": 100
+      }
     }
+  },
+  "devDependencies": {
+    "jest": "30.5.2"
   }
 }
