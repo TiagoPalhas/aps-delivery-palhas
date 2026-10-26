@@ -1,4 +1,4 @@
-const { autenticar, forcaSenha, podeLogar } = require('./delivery');
+const { autenticar, forcaSenha, podeLogar, calcularFrete } = require('./delivery');
 
 const usuarios = [
   { email: 'ana@delivery.com', senha: 'Ana12345', ativo: true },
@@ -51,4 +51,20 @@ test('CT-11: Ativo com 3 falhas', () => {
 
 test('CT-12: Status bloqueado', () => {
   expect(podeLogar({ status: 'bloqueado', falhas: 0 })).toBe(false);
+});
+
+test('CT-13: Distância curta', () => {
+  expect(calcularFrete(2)).toBe(5);
+});
+
+test('CT-14: Fronteira de 3 km', () => {
+  expect(calcularFrete(3)).toBe(5);
+});
+
+test('CT-15: Acima da fronteira', () => {
+  expect(calcularFrete(5)).toBe(8);
+});
+
+test('CT-16: Distância negativa', () => {
+  expect(() => calcularFrete(-2)).toThrow(new Error('Distância inválida'));
 });

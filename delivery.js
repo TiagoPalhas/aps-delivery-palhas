@@ -15,4 +15,10 @@ function podeLogar(usuario) {
   return usuario.status === 'ativo' && usuario.falhas < 3;
 }
 
-module.exports = { autenticar, forcaSenha, podeLogar };
+function calcularFrete(distanciaKm) {
+  if (distanciaKm <= 0) throw new Error('Distância inválida');
+  if (distanciaKm <= 3) return 5;
+  return 5 + (distanciaKm - 3) * 1.5;
+}
+
+module.exports = { autenticar, forcaSenha, podeLogar, calcularFrete };
