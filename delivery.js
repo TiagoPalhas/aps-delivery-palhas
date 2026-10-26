@@ -6,9 +6,11 @@ function autenticar(usuarios, email, senha) {
 
 function forcaSenha(senha) {
   if (senha.length < 8) return 'fraca';
-  const tipos = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/]
-    .filter(tipo => tipo.test(senha)).length;
-  return tipos >= 3 ? 'forte' : 'media';
+
+  const tipos = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/];
+  const quantidade = tipos.filter(tipo => tipo.test(senha)).length;
+
+  return quantidade >= 3 ? 'forte' : 'media';
 }
 
 function podeLogar(usuario) {
@@ -18,15 +20,18 @@ function podeLogar(usuario) {
 function calcularFrete(distanciaKm) {
   if (distanciaKm <= 0) throw new Error('Distância inválida');
   if (distanciaKm <= 3) return 5;
+
   return 5 + (distanciaKm - 3) * 1.5;
 }
 
 function aplicarCupom(valor, cupom) {
   if ([null, undefined, ''].includes(cupom)) return valor;
+
   let fator;
   if (cupom === 'PRIMEIRA10') fator = 0.9;
   else if (cupom === 'VIP20') fator = 0.8;
   else throw new Error('Cupom inválido');
+
   return Number((valor * fator).toFixed(2));
 }
 
