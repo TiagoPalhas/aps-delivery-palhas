@@ -4,4 +4,11 @@ function autenticar(usuarios, email, senha) {
   );
 }
 
-module.exports = { autenticar };
+function forcaSenha(senha) {
+  if (senha.length < 8) return 'fraca';
+  const tipos = [/[a-z]/, /[A-Z]/, /[0-9]/, /[^a-zA-Z0-9]/]
+    .filter(tipo => tipo.test(senha)).length;
+  return tipos >= 3 ? 'forte' : 'media';
+}
+
+module.exports = { autenticar, forcaSenha };
