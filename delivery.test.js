@@ -1,4 +1,4 @@
-const { autenticar, forcaSenha, podeLogar, calcularFrete } = require('./delivery');
+const { autenticar, forcaSenha, podeLogar, calcularFrete, aplicarCupom } = require('./delivery');
 
 const usuarios = [
   { email: 'ana@delivery.com', senha: 'Ana12345', ativo: true },
@@ -67,4 +67,20 @@ test('CT-15: Acima da fronteira', () => {
 
 test('CT-16: Distância negativa', () => {
   expect(() => calcularFrete(-2)).toThrow(new Error('Distância inválida'));
+});
+
+test('CT-17: Sem cupom', () => {
+  expect(aplicarCupom(80, null)).toBe(80);
+});
+
+test('CT-18: Cupom de 10%', () => {
+  expect(aplicarCupom(100, 'PRIMEIRA10')).toBe(90);
+});
+
+test('CT-19: Cupom de 20%', () => {
+  expect(aplicarCupom(50, 'VIP20')).toBe(40);
+});
+
+test('CT-20: Cupom desconhecido', () => {
+  expect(() => aplicarCupom(80, 'CUPOM123')).toThrow(new Error('Cupom inválido'));
 });

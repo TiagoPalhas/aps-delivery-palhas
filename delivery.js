@@ -21,4 +21,13 @@ function calcularFrete(distanciaKm) {
   return 5 + (distanciaKm - 3) * 1.5;
 }
 
-module.exports = { autenticar, forcaSenha, podeLogar, calcularFrete };
+function aplicarCupom(valor, cupom) {
+  if ([null, undefined, ''].includes(cupom)) return valor;
+  let fator;
+  if (cupom === 'PRIMEIRA10') fator = 0.9;
+  else if (cupom === 'VIP20') fator = 0.8;
+  else throw new Error('Cupom inválido');
+  return Number((valor * fator).toFixed(2));
+}
+
+module.exports = { autenticar, forcaSenha, podeLogar, calcularFrete, aplicarCupom };
