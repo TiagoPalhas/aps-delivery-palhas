@@ -1,0 +1,17 @@
+{
+  "name": "aps-delivery",
+  "version": "1.0.0",
+  "private": true,
+  "description": "APS DeliveryExpress — UNIFAMETRO",
+  "scripts": {
+    "test": "jest",
+    "test:coverage": "jest --coverage --runInBand"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "collectCoverageFrom": ["delivery.js"],
+    "coverageThreshold": {
+      "global": { "branches": 100, "functions": 100, "lines": 100, "statements": 100 }
+    }
+  }
+}
