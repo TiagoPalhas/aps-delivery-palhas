@@ -1,4 +1,4 @@
-const { autenticar, forcaSenha } = require('./delivery');
+const { autenticar, forcaSenha, podeLogar } = require('./delivery');
 
 const usuarios = [
   { email: 'ana@delivery.com', senha: 'Ana12345', ativo: true },
@@ -35,4 +35,20 @@ test('CT-07: 8 caracteres, 2 tipos', () => {
 
 test('CT-08: 8 caracteres, 4 tipos', () => {
   expect(forcaSenha('Abcdef1!')).toBe('forte');
+});
+
+test('CT-09: Ativo sem falhas', () => {
+  expect(podeLogar({ status: 'ativo', falhas: 0 })).toBe(true);
+});
+
+test('CT-10: Ativo com 2 falhas (limite)', () => {
+  expect(podeLogar({ status: 'ativo', falhas: 2 })).toBe(true);
+});
+
+test('CT-11: Ativo com 3 falhas', () => {
+  expect(podeLogar({ status: 'ativo', falhas: 3 })).toBe(false);
+});
+
+test('CT-12: Status bloqueado', () => {
+  expect(podeLogar({ status: 'bloqueado', falhas: 0 })).toBe(false);
 });

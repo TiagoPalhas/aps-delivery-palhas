@@ -11,4 +11,8 @@ function forcaSenha(senha) {
   return tipos >= 3 ? 'forte' : 'media';
 }
 
-module.exports = { autenticar, forcaSenha };
+function podeLogar(usuario) {
+  return usuario.status === 'ativo' && usuario.falhas < 3;
+}
+
+module.exports = { autenticar, forcaSenha, podeLogar };
