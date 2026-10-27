@@ -4,8 +4,7 @@
   "private": true,
   "description": "APS DeliveryExpress — UNIFAMETRO",
   "scripts": {
-    "test": "jest",
-    "test:coverage": "jest --coverage --runInBand"
+    "test": "jest"
   },
   "jest": {
     "testEnvironment": "node",
